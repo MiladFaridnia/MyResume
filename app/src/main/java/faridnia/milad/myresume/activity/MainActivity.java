@@ -1,6 +1,5 @@
 package faridnia.milad.myresume.activity;
 
-import android.net.Uri;
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,9 +11,9 @@ import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import faridnia.milad.myresume.R;
-import fragment.ExperienceFragment;
+import fragment.AboutMeFragment;
 
-public class MainActivity extends AppCompatActivity implements  ExperienceFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements  AboutMeFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,27 +21,30 @@ public class MainActivity extends AppCompatActivity implements  ExperienceFragme
         setContentView(R.layout.activity_main);
 
 
-        final BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        final BottomBar bottomBar =  findViewById(R.id.bottomBar);
+
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
               //  messageView.setText(TabMessage.get(tabId, false));
                 switch (tabId){
+                    case R.id.tab_about_me:
+                        initFragment(AboutMeFragment.newInstance());
+                        break;
+
                     case R.id.tab_experience:
-                        initFragment(ExperienceFragment.newInstance());
+                        initFragment(AboutMeFragment.newInstance());
                         break;
 
                     case R.id.tab_education:
-                        initFragment(ExperienceFragment.newInstance());
+                        initFragment(AboutMeFragment.newInstance());
                         break;
 
                     case R.id.tab_interests:
-                        initFragment(ExperienceFragment.newInstance());
+                        initFragment(AboutMeFragment.newInstance());
                         break;
 
-                    case R.id.tab_contact:
-                        initFragment(ExperienceFragment.newInstance());
-                        break;
+
 
                 }
             }
@@ -62,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements  ExperienceFragme
     private void initFragment(Fragment fragment) {
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
-        //ExperienceFragment fragment =  ExperienceFragment.newInstance();
         fragmentManager.beginTransaction().setCustomAnimations(R.anim.fragment_slide_left_enter,
                 R.anim.fragment_slide_left_exit,
                 R.anim.fragment_slide_right_enter,

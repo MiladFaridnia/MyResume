@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tabs>
     <tab
+        id="@+id/tab_about_me"
+        icon="@drawable/about"
+        title="About Me"
+        barColorWhenSelected="fff" />
+    <tab
         id="@+id/tab_experience"
         icon="@drawable/users"
         title="Experience"
-        barColorWhenSelected="@color/colorAccent" />
+        barColorWhenSelected="@color/colorBlue" />
     <tab
         id="@+id/tab_education"
         icon="@drawable/education"
         title="Education"
-        barColorWhenSelected="#5D4037" />
+        barColorWhenSelected="fff" />
     <tab
         id="@+id/tab_interests"
         icon="@drawable/interests"
         title="Interests"
-        barColorWhenSelected="#7B1FA2" />
-    <tab
-        id="@+id/tab_contact"
-        icon="@drawable/contact"
-        title="Contact Me"
-        barColorWhenSelected="#FF5252" />
+        barColorWhenSelected="@color/colorBlue" />
+
+    <!--<tab-->
+        <!--id="@+id/tab_contact"-->
+        <!--icon="@drawable/contact"-->
+        <!--title="Contact Me"-->
+        <!--barColorWhenSelected="@android:color/white" />-->
 
 </tabs>
