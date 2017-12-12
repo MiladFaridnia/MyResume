@@ -12,8 +12,9 @@ import com.roughike.bottombar.OnTabSelectListener;
 
 import faridnia.milad.myresume.R;
 import fragment.AboutMeFragment;
+import fragment.ExperienceFragment;
 
-public class MainActivity extends AppCompatActivity implements  AboutMeFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements  AboutMeFragment.OnFragmentInteractionListener ,ExperienceFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements  AboutMeFragment.
                         break;
 
                     case R.id.tab_experience:
-                        initFragment(AboutMeFragment.newInstance());
+                        initFragment(ExperienceFragment.newInstance());
                         break;
 
                     case R.id.tab_education:

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="request_timeout">پاسخی دریافت نشد</string>
+    <string name="no_network">خطا در اتصال به شبکه</string>
+    <string name="error">خطا</string>
+    <string name="socket_timeout_exception">خطا در دریافت اطلاعات</string>
+    <string name="not_authorized">دسترسی محدود. لطفا ابتدا وارد شوید</string>
+    <string name="internal_server_error">دسترسی به سرور در حال حاضر امکان پذیر نمی باشد</string>
+    <string name="ok">تایید</string>
+    <string name="cancel">صرف نظر</string>
+</resources>

@@ -9,7 +9,7 @@
         id="@+id/tab_experience"
         icon="@drawable/users"
         title="Experience"
-        barColorWhenSelected="@color/colorBlue" />
+        barColorWhenSelected="fff" />
     <tab
         id="@+id/tab_education"
         icon="@drawable/education"
@@ -19,7 +19,7 @@
         id="@+id/tab_interests"
         icon="@drawable/interests"
         title="Interests"
-        barColorWhenSelected="@color/colorBlue" />
+        barColorWhenSelected="fff" />
 
     <!--<tab-->
         <!--id="@+id/tab_contact"-->
