@@ -1,8 +1,10 @@
 package fragment;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -61,19 +63,25 @@ public class ExperienceFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_experience, container, false);
-        //  return
 
-        mRecyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
+        CollapsingToolbarLayout collapsingToolbar =
+                root.findViewById(R.id.collapsing_toolbar);
+        collapsingToolbar.setTitle("My Name");
+//        final Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/FrutigerLTStd-Light.otf");
+//        collapsingToolbar.setCollapsedTitleTypeface(tf);
+//        collapsingToolbar.setExpandedTitleTypeface(tf);
+
+        mRecyclerView = root.findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setHasFixedSize(true);
 
         initView();
 
         return root;
-
     }
 
     private void initView() {
+
         setDataListItems();
         mTimeLineAdapter = new TimeLineAdapter(mDataList);
         mRecyclerView.setAdapter(mTimeLineAdapter);
