@@ -13,7 +13,7 @@
     <tab
         id="@+id/tab_education"
         icon="@drawable/education"
-        title="Education"
+        title="Skill and Edu"
         barColorWhenSelected="fff" />
     <tab
         id="@+id/tab_interests"

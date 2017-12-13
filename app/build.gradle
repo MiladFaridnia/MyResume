@@ -29,7 +29,7 @@ dependencies {
     compile 'agency.tango.android:material-intro-screen:0.0.5'
     compile 'com.roughike:bottom-bar:2.3.1'
     compile 'com.github.vipulasri:timelineview:1.0.5'
-  //  compile 'com.github.qapqap:TimelineView:v1.6'
+    //  compile 'com.github.qapqap:TimelineView:v1.6'
 
 
     compile 'net.karthikraj.shapesimage:shapesimage:1.0.2'
