@@ -13,6 +13,7 @@ import com.roughike.bottombar.OnTabSelectListener;
 import faridnia.milad.myresume.R;
 import fragment.AboutMeFragment;
 import fragment.ExperienceFragment;
+import fragment.SkillFragment;
 
 public class MainActivity extends AppCompatActivity implements  AboutMeFragment.OnFragmentInteractionListener ,ExperienceFragment.OnFragmentInteractionListener{
 
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements  AboutMeFragment.
                         break;
 
                     case R.id.tab_education:
-                        initFragment(AboutMeFragment.newInstance());
+                        initFragment(SkillFragment.newInstance());
                         break;
 
                     case R.id.tab_interests:
