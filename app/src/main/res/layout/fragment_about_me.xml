@@ -186,7 +186,7 @@
         android:orientation="vertical"
         android:padding="16dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/cute"
+        android:src="@drawable/cute1"
         app:shape="hexagon" />
 
     <RelativeLayout

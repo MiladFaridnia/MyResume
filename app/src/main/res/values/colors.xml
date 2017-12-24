@@ -7,4 +7,6 @@
     <color name="colorPurple">#8e5be1</color>
 
     <color name="colorAccent">#E1EFFA</color>
+    <color name="colorTransparent">#00ffffff</color>
+
 </resources>

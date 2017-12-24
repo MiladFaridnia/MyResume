@@ -31,7 +31,6 @@ dependencies {
     compile 'com.github.vipulasri:timelineview:1.0.5'
     //  compile 'com.github.qapqap:TimelineView:v1.6'
 
-
     compile 'net.karthikraj.shapesimage:shapesimage:1.0.2'
     compile 'com.github.siyamed:android-shape-imageview:0.9.3@aar'
 
@@ -44,6 +43,8 @@ dependencies {
 
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
 
 
 }

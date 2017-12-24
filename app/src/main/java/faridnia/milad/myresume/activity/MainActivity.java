@@ -15,7 +15,7 @@ import fragment.AboutMeFragment;
 import fragment.ExperienceFragment;
 import fragment.SkillFragment;
 
-public class MainActivity extends AppCompatActivity implements  AboutMeFragment.OnFragmentInteractionListener ,ExperienceFragment.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements  AboutMeFragment.OnFragmentInteractionListener ,ExperienceFragment.OnFragmentInteractionListener , SkillFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
