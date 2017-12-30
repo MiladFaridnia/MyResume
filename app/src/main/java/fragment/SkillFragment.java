@@ -11,10 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.charts.RadarChart;
 import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.RadarData;
 import com.github.mikephil.charting.data.RadarDataSet;
@@ -22,9 +28,11 @@ import com.github.mikephil.charting.data.RadarEntry;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import faridnia.milad.myresume.R;
 
@@ -41,8 +49,9 @@ public class SkillFragment extends Fragment {
 
     private RadarChart mChart;
     private Typeface mTfLight;
-    private SparseIntArray factors = new SparseIntArray(5);
-    private SparseIntArray scores = new SparseIntArray(5);
+    private SparseIntArray factors = new SparseIntArray(6);
+    //    private SparseIntArray scores = new SparsFloatArray(6);
+    private Float[] scores = {85f, 70f, 60f, 65f, 80f, 90f};
     private ArrayList<RadarEntry> entries = new ArrayList<>();
     private ArrayList<IRadarDataSet> dataSets = new ArrayList<>();
 
@@ -76,9 +85,7 @@ public class SkillFragment extends Fragment {
         factors.append(5, R.string.databases);
         factors.append(6, R.string.activity_fragment);
 
-      //  mTfLight = Typeface.createFromAsset(getActivity().getAssets(), Constants.);
-
-
+        //  mTfLight = Typeface.createFromAsset(getActivity().getAssets(), Constants.);
     }
 
     @Override
@@ -89,25 +96,51 @@ public class SkillFragment extends Fragment {
 
         initRadarChart(root);
 
-        // Or hardcode some test data:
-        scores.append(1, 85);
-        scores.append(2, 70);
-        scores.append(3, 50);
-        scores.append(4, 65);
-        scores.append(5, 80);
-        scores.append(6, 90);
+        drawRadarChart();
 
-        drawChart();
+
+
+        initHorizontalChart(root);
 
         return root;
+    }
+
+    private void initHorizontalChart(View root) {
+        BarChart horizontalBarChart =  root.findViewById(R.id.horizontalBarChart);
+
+
+        List<BarEntry> entries = new ArrayList<>();
+        entries.add(new BarEntry(0f, 30f));
+        entries.add(new BarEntry(1f, 80f));
+        entries.add(new BarEntry(2f, 60f));
+        entries.add(new BarEntry(3f, 50f));
+        // gap of 2f
+        entries.add(new BarEntry(5f, 70f));
+        entries.add(new BarEntry(6f, 60f));
+
+        BarDataSet set = new BarDataSet(entries, "BarDataSet");
+
+
+        BarData data = new BarData(set);
+        data.setBarWidth(0.9f); // set custom bar width
+        horizontalBarChart.setData(data);
+        horizontalBarChart.setFitBars(true); // make the x-axis fit exactly all bars
+        horizontalBarChart.invalidate(); // refresh
+
+
+
+
+
     }
 
     private void initRadarChart(View rootView) {
         mChart = (RadarChart) rootView.findViewById(R.id.radarChart);
 
         XAxis xAxis = mChart.getXAxis();
-        xAxis.setXOffset(0f);
-        xAxis.setYOffset(0f);
+//        xAxis.setXOffset(0f);
+//        xAxis.setYOffset(0f);
+       // xAxis.setAxisMaximum(100);
+
         xAxis.setTypeface(mTfLight);
         xAxis.setTextSize(8f);
         xAxis.setValueFormatter(new IAxisValueFormatter() {
@@ -124,10 +157,10 @@ public class SkillFragment extends Fragment {
 
         YAxis yAxis = mChart.getYAxis();
         yAxis.setAxisMinimum(0f);
-        yAxis.setAxisMaximum(100);
+        yAxis.setAxisMaximum(80f);
         yAxis.setTypeface(mTfLight);
-        yAxis.setTextSize(9f);
-        yAxis.setLabelCount(5, false);
+        yAxis.setTextSize(14f);
+        yAxis.setLabelCount(6, false);
         yAxis.setDrawLabels(false);
 
         mChart.getLegend().setEnabled(false);
@@ -140,22 +173,23 @@ public class SkillFragment extends Fragment {
     }
 
 
-    private void drawChart() {
+    private void drawRadarChart() {
 
         entries.clear();
 
-        for (int i = 1; i <= 5; i++) {
-            entries.add(new RadarEntry(scores.get(i)));
+        for (int i = 0; i <= 5; i++) {
+            entries.add(new RadarEntry(scores[i]));
         }
 
         RadarDataSet dataSet = new RadarDataSet(entries, "");
         dataSet.setColor(R.color.colorPrimary);
         dataSet.setDrawFilled(true);
 
+
         dataSets.add(dataSet);
 
         RadarData data = new RadarData(dataSets);
-     //   data.setValueTypeface(mTfLight);
+        //   data.setValueTypeface(mTfLight);
         data.setValueTextSize(8f);
 
         data.setValueFormatter(new IValueFormatter() {
@@ -169,6 +203,13 @@ public class SkillFragment extends Fragment {
         mChart.setData(data);
         mChart.invalidate();
     }
+
+
+
+
+
+
+
 
     public void onButtonPressed(Uri uri) {
 
