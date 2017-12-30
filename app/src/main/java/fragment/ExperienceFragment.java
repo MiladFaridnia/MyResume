@@ -88,6 +88,8 @@ public class ExperienceFragment extends Fragment {
     }
 
     private void setDataListItems() {
+
+
         mDataList.add(new TimeLineModel("Developing apps for both Android and IOS Platforms.\n", "Mobile Developer at Afranet", "Mar 2016 → Current (1 year, 10 months)"));
         mDataList.add(new TimeLineModel("As an Android Developer I am responsible to keep and develop android applications for \"Maadiran R&D Department\". I also have work experience in building android kernels for Smart TVs and Smart Phones.",
                 "Software Developer at Maadiran", "2014 → 2016 (3 years)"));
