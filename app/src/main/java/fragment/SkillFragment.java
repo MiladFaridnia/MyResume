@@ -137,9 +137,6 @@ public class SkillFragment extends Fragment {
         mChart = (RadarChart) rootView.findViewById(R.id.radarChart);
 
         XAxis xAxis = mChart.getXAxis();
-//        xAxis.setXOffset(0f);
-//        xAxis.setYOffset(0f);
-       // xAxis.setAxisMaximum(100);
 
         xAxis.setTypeface(mTfLight);
         xAxis.setTextSize(8f);
@@ -181,10 +178,10 @@ public class SkillFragment extends Fragment {
             entries.add(new RadarEntry(scores[i]));
         }
 
+
         RadarDataSet dataSet = new RadarDataSet(entries, "");
         dataSet.setColor(R.color.colorPrimary);
         dataSet.setDrawFilled(true);
-
 
         dataSets.add(dataSet);
 
@@ -203,7 +200,6 @@ public class SkillFragment extends Fragment {
         mChart.setData(data);
         mChart.invalidate();
     }
-
 
 
 
